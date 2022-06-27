@@ -38,7 +38,7 @@ describe('isPalindrome', () => {
     const returnedValue = isPalindrome('dad');
     expect(returnedValue).to.equal(true);
 
-    expect('kayak').to.equal(true);
+    expect(isPalindrome('kayak')).to.equal(true);
   });
 
   it('returns false if the string is not a palindrome', () => {
