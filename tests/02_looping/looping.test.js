@@ -2,7 +2,10 @@
 const { expect } = require('chai');
 
 const {
-  factorial, stringReverse, slicer, addTheEvens,
+  factorial,
+  stringReverse,
+  slicer,
+  addTheEvens
 } = require('./looping');
 
 describe('factorial', () => {
@@ -44,7 +47,7 @@ describe('stringReverse', () => {
   });
 });
 
-describe('slicer', () => {
+describe.only('slicer', () => {
   it('is a function', () => {
     expect(typeof slicer).to.equal('function');
   });
@@ -60,7 +63,11 @@ describe('slicer', () => {
   });
 
   it('returns a new string with the correct starting and ending indices', () => {
-    const returnedValue = slicer('twice the ice is nice to slice', 6, 20);
+    const returnedValue = slicer(
+      'twice the ice is nice to slice',
+      6,
+      20
+    );
     expect(returnedValue).to.equal('the ice is nice');
   });
 
