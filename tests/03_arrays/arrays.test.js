@@ -2,7 +2,11 @@
 const { expect } = require('chai');
 
 const {
-  multiply, includesCopy, camelCase, inventory, joiner,
+  multiply,
+  includesCopy,
+  camelCase,
+  inventory,
+  joiner
 } = require('./arrays');
 
 describe('multiply', () => {
@@ -37,12 +41,18 @@ describe('includesCopy', () => {
   });
 
   it('returns true if the searchValue is in the array', () => {
-    const returnedValue = includesCopy(['haskell', 'rust', 'javascript'], 'rust');
+    const returnedValue = includesCopy(
+      ['haskell', 'rust', 'javascript'],
+      'rust'
+    );
     expect(returnedValue).to.equal(true);
   });
 
   it('returns false if the searchValue is not in the array', () => {
-    const returnedValue = includesCopy(['dwight', 'angela', 'michael'], 'jim');
+    const returnedValue = includesCopy(
+      ['dwight', 'angela', 'michael'],
+      'jim'
+    );
     expect(returnedValue).to.equal(false);
   });
 });
@@ -87,20 +97,22 @@ describe('inventory', () => {
     const items = [['chair', ['comfortable', 100]]];
 
     const returnedValue = inventory(items);
-    expect(returnedValue[0]).to.equal('The comfortable chair is 100 dollars.');
+    expect(returnedValue[0]).to.equal(
+      'The comfortable chair is 100 dollars.'
+    );
   });
 
   it('returns the correct array of sentences, given multiple items', () => {
     const items = [
       ['dresser', ['heavy', 200]],
-      ['computer', ['small', 500]],
+      ['computer', ['small', 500]]
     ];
 
     const returnedValue = inventory(items);
 
     const expectedValue = [
       'The heavy dresser is 200 dollars.',
-      'The small computer is 500 dollars.',
+      'The small computer is 500 dollars.'
     ];
 
     expect(returnedValue).to.deep.equal(expectedValue);
@@ -118,7 +130,10 @@ describe('joiner', () => {
   });
 
   it('returns a string with all of the array element joined together, separated by the separator', () => {
-    const returnedValue = joiner(['Jerry', 'Elaine', 'George'], ' and ');
+    const returnedValue = joiner(
+      ['Jerry', 'Elaine', 'George'],
+      ' and '
+    );
     expect(returnedValue).to.equal('Jerry and Elaine and George');
   });
 
