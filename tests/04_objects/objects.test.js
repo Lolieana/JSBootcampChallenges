@@ -3,7 +3,10 @@
 const { expect } = require('chai');
 
 const {
-  compareObjects, deleteProp, numObjectProps, shoppingCart,
+  compareObjects,
+  deleteProp,
+  numObjectProps,
+  shoppingCart
 } = require('./objects');
 
 describe('deleteProp', () => {
@@ -12,7 +15,10 @@ describe('deleteProp', () => {
   });
 
   it('returns an object', () => {
-    const returnedValue = deleteProp({ firstName: 'joe', lastName: 'Johnson' }, 'lastName');
+    const returnedValue = deleteProp(
+      { firstName: 'joe', lastName: 'Johnson' },
+      'lastName'
+    );
     expect(typeof returnedValue).to.equal('object');
     expect(Array.isArray(returnedValue)).to.equal(false);
   });
@@ -22,19 +28,24 @@ describe('deleteProp', () => {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'developer',
+      occupation: 'developer'
     };
 
     const returnedValue = deleteProp(objectItems, 'age');
     expect(returnedValue).to.deep.equal({
       firstName: 'Tom',
       lastName: 'Smith',
-      occupation: 'developer',
+      occupation: 'developer'
     });
-    expect(deleteProp({
-      firstName: 'Tom',
-      lastName: 'Smith',
-    }, 'lastName')).to.deep.equal({ firstName: 'Tom' });
+    expect(
+      deleteProp(
+        {
+          firstName: 'Tom',
+          lastName: 'Smith'
+        },
+        'lastName'
+      )
+    ).to.deep.equal({ firstName: 'Tom' });
   });
 });
 
@@ -53,15 +64,17 @@ describe('numObjectProps', () => {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'developer',
+      occupation: 'developer'
     };
 
     const returnedValue = numObjectProps(objectItems);
     expect(returnedValue).to.equal(4);
-    expect(numObjectProps({
-      firstName: 'Tom',
-      lastName: 'Smith',
-    })).to.equal(2);
+    expect(
+      numObjectProps({
+        firstName: 'Tom',
+        lastName: 'Smith'
+      })
+    ).to.equal(2);
   });
 });
 
@@ -71,7 +84,9 @@ describe('shoppingCart', () => {
   });
 
   it('returns a number', () => {
-    const returnedValue = shoppingCart([{ name: 'water', amount: 2 }]);
+    const returnedValue = shoppingCart([
+      { name: 'water', amount: 2 }
+    ]);
     expect(typeof returnedValue).to.equal('number');
   });
 
@@ -79,15 +94,16 @@ describe('shoppingCart', () => {
     const cartItems = [
       {
         name: 'mice',
-        amount: 2,
-      }, {
-        name: 'computers',
-        amount: 5,
-      }, {
-        name: 'keyboards',
-        amount: 12,
+        amount: 2
       },
-
+      {
+        name: 'computers',
+        amount: 5
+      },
+      {
+        name: 'keyboards',
+        amount: 12
+      }
     ];
 
     const returnedValue = shoppingCart(cartItems);
@@ -101,22 +117,24 @@ describe('compareObjects', () => {
   });
 
   it('returns a boolean', () => {
-    const returnedValue = compareObjects({ firstName: 'joe', lastName: 'Johnson' },
-      { firstName: 'joe', lastName: 'Johnson' });
+    const returnedValue = compareObjects(
+      { firstName: 'joe', lastName: 'Johnson' },
+      { firstName: 'joe', lastName: 'Johnson' }
+    );
     expect(typeof returnedValue).to.equal('boolean');
   });
 
   it('returns false if objects do not have the same number of properties', () => {
     const obj1 = {
       firstName: 'Tom',
-      lastName: 'Smith',
+      lastName: 'Smith'
     };
 
     const obj2 = {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'teacher',
+      occupation: 'teacher'
     };
 
     const returnedValue = compareObjects(obj1, obj2);
@@ -128,14 +146,14 @@ describe('compareObjects', () => {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'developer',
+      occupation: 'developer'
     };
 
     const obj2 = {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'developer',
+      occupation: 'developer'
     };
 
     const returnedValue = compareObjects(obj1, obj2);
@@ -147,14 +165,14 @@ describe('compareObjects', () => {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      job: 'developer',
+      job: 'developer'
     };
 
     const obj2 = {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'developer',
+      occupation: 'developer'
     };
 
     const returnedValue = compareObjects(obj1, obj2);
@@ -166,14 +184,14 @@ describe('compareObjects', () => {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'developer',
+      occupation: 'developer'
     };
 
     const obj2 = {
       firstName: 'Tom',
       lastName: 'Smith',
       age: 25,
-      occupation: 'teacher',
+      occupation: 'teacher'
     };
 
     const returnedValue = compareObjects(obj1, obj2);
