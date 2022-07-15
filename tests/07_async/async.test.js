@@ -1,7 +1,11 @@
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
 const { expect } = require('chai');
-const { getMealsCategory, getMealsCategories, getMealsByIngredient } = require('./async');
+const {
+  getMealsCategory,
+  getMealsCategories,
+  getMealsByIngredient
+} = require('./async');
 
 describe('The Meal DB', () => {
   let mealsCategory;
@@ -31,7 +35,9 @@ describe('The Meal DB', () => {
     it('is a function that calls the meal db and returns all the meals categories', async () => {
       expect(mealsCategories.categories).to.have.length(14);
       expect(mealsCategories.categories[0].idCategory).to.equal('1');
-      expect(mealsCategories.categories[0].strCategory).to.equal('Beef');
+      expect(mealsCategories.categories[0].strCategory).to.equal(
+        'Beef'
+      );
     });
   });
 
